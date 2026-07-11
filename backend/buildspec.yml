@@ -5,22 +5,18 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing backend dependencies"
-      - npm install
-
-  pre_build:
-    commands:
-      - echo "Pre-build checks complete"
+      - npm install --prefix backend
 
   build:
     commands:
-      - echo "Backend build phase - no compile step required for Node.js"
+      - echo "Backend build complete"
 
   post_build:
     commands:
-      - echo "Backend build complete"
+      - echo "Backend packaging complete"
 
 artifacts:
+  base-directory: backend
   files:
     - appspec.yml
     - scripts/**/*
@@ -31,5 +27,4 @@ artifacts:
     - configs/**/*
     - controllers/**/*
     - routes/**/*
-  base-directory: .
   discard-paths: no
