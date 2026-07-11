@@ -1,0 +1,35 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installing backend dependencies"
+      - npm install
+
+  pre_build:
+    commands:
+      - echo "Pre-build checks complete"
+
+  build:
+    commands:
+      - echo "Backend build phase - no compile step required for Node.js"
+
+  post_build:
+    commands:
+      - echo "Backend build complete"
+
+artifacts:
+  files:
+    - appspec.yml
+    - scripts/**/*
+    - app.js
+    - server.js
+    - package.json
+    - package-lock.json
+    - configs/**/*
+    - controllers/**/*
+    - routes/**/*
+  base-directory: .
+  discard-paths: no
