@@ -7,7 +7,7 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
-  TitleVault,
+  Title,
   Tooltip,
   Legend,
   ChartData,
