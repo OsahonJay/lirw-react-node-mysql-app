@@ -6,26 +6,54 @@ phases:
       nodejs: 18
     commands:
       - echo "Installing frontend dependencies"
-      - npm install
+      - cd frontend && npm install
 
   pre_build:
     commands:
       - echo "Running linter"
-      - npm run lint
+      - cd frontend && npm run lint
 
   build:
     commands:
       - echo "Building React frontend for production"
-      - npm run build
+      - cd frontend && npm run build
 
   post_build:
     commands:
-      - echo "Frontend build complete - output in dist/"
+      - echo "Frontend build complete - output in frontend/dist/"
 
 artifacts:
   files:
-    - appspec.yml
-    - scripts/**/*
-    - dist/**/*
-  base-directory: .
+    - frontend/appspec.yml
+    - frontend/scripts/**/*
+    - frontend/dist/**/*
+  discard-paths: noversion: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo "Installing frontend dependencies"
+      - cd frontend && npm install
+
+  pre_build:
+    commands:
+      - echo "Running linter"
+      - cd frontend && npm run lint
+
+  build:
+    commands:
+      - echo "Building React frontend for production"
+      - cd frontend && npm run build
+
+  post_build:
+    commands:
+      - echo "Frontend build complete - output in frontend/dist/"
+
+artifacts:
+  files:
+    - frontend/appspec.yml
+    - frontend/scripts/**/*
+    - frontend/dist/**/*
   discard-paths: no
