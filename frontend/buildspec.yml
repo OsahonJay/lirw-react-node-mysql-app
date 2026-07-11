@@ -1,26 +1,17 @@
 version: 0.2
 
-env:
-  variables:
-    APP_DIR: "frontend"
-
 phases:
   install:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo "Installing frontend dependencies"
-      - cd $APP_DIR && npm install
-
-  pre_build:
-    commands:
-      - echo "Running linter"
-      - cd $APP_DIR && npm run lint
+      - cd frontend
+      - npm install
 
   build:
     commands:
-      - echo "Building React frontend for production"
-      - cd $APP_DIR && npm run build
+      - cd frontend
+      - npm run build
 
   post_build:
     commands:
