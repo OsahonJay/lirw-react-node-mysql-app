@@ -24,6 +24,7 @@ artifacts:
     - server.js
     - package.json
     - package-lock.json
+    - db.sql
     - configs/**/*
     - controllers/**/*
     - routes/**/*
