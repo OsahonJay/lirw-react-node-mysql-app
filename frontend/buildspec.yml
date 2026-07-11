@@ -20,11 +20,12 @@ phases:
 
   post_build:
     commands:
-      - echo "Frontend build complete - output in frontend/dist/"
+      - echo "Frontend build complete"
 
 artifacts:
+  base-directory: frontend
   files:
-    - frontend/appspec.yml
-    - frontend/scripts/**/*
-    - frontend/dist/**/*
+    - appspec.yml
+    - scripts/**/*
+    - dist/**/*
   discard-paths: no
