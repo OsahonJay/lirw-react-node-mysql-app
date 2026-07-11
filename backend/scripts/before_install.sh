@@ -1,13 +1,8 @@
 #!/bin/bash
-set -e
 
 echo "Stopping existing application"
-if pm2 list | grep -q "server"; then
-  pm2 stop server
-  pm2 delete server
-else
-  echo "No existing pm2 process found - continuing"
-fi
+pm2 stop all || true
+pm2 delete all || true
 
 echo "Cleaning previous deployment"
 rm -rf /home/ec2-user/app/backend
